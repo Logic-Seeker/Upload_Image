@@ -1,17 +1,19 @@
 JsonPhoto::Application.routes.draw do
-  get "photos/index"
-  get "photos/new"
-  post "photos/create"
-  get "photos/delete"
-  get "photos/show"
+  require 'api_constraints'
+  namespace :api, defaults: {format: 'json'} do
+    namespace :v1 do
+      resources :photos
+    end
+  end
+  
   resources :photos
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-   root 'photos#index'
+  root 'photos#index'
 
-  # Example of regular route:
+   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)

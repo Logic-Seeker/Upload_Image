@@ -1,6 +1,6 @@
 class PhotosController < ApplicationController
   def index
-
+    @photo = Photo.all
   end
 
   def new
@@ -10,7 +10,8 @@ class PhotosController < ApplicationController
   def create
     @photo = Photo.new(photo_params)
     @photo.save
-    redirect_to photos_index_path
+    redirect_to photos_path
+    
   end
 
   def delete
@@ -19,7 +20,6 @@ class PhotosController < ApplicationController
   def show
   end
 
-  private#####################
 
   def photo_params
      params.require(:photo).permit(:title, :image)
