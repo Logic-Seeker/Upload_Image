@@ -7,13 +7,14 @@ module Api
       end
 
       def create
-	if params[:photo][:image].present?
-	  tempfile = Tempfile.new("fileupload")
-	  tempfile.binmode
-	  tempfile.write(Base64.decode64(params[:photo][:image]))
-	  uploaded_file = ActionDispatch::Http::UploadedFile.new(:tempfile => tempfile, :filename => "hest", :original_filename => "tram")
-	  params[:photo][:image] = uploaded_file
-	end
+#	binding.pry
+#	if params[:photo][:image].present?
+#	  tempfile = Tempfile.new("fileupload")
+#	  tempfile.binmode
+#	  tempfile.write(Base64.decode64(params[:photo][:image]))
+#	  uploaded_file = ActionDispatch::Http::UploadedFile.new(:tempfile => tempfile, :filename => "hest", :original_filename => "tram")
+#	  params[:photo][:image] = uploaded_file
+#	end
 	@photo= Photo.new(photo_params)
 	if @photo.save
 	  render :json => @photo
