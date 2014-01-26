@@ -3,8 +3,8 @@ CarrierWave.configure do |config|
     config.storage = :fog
     config.fog_credentials = {
       :provider              => 'AWS',
-      :aws_access_key_id     => 'AKIAIAGTVHE3GGLUYXQQ',
-      :aws_secret_access_key => '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'
+      :aws_access_key_id     => ENV['S3_SECRET'],
+      :aws_secret_access_key => ENV['S3_KEY'] 
     }
     config.fog_directory    = "Demophoto"
   else
