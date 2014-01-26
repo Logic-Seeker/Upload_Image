@@ -5,8 +5,13 @@ gem 'rails', '4.0.0'
 gem 'pry-rails'
 gem 'carrierwave'
 gem 'mini_magick', '~> 3.6.0'
+gem 'fog'
+gem 'unf'
 # Use sqlite3 as the database for Active Record
 #
+group :development, :test do
+  gem 'rspec-rails'
+end
 group :development do
   gem 'sqlite3'
 end
