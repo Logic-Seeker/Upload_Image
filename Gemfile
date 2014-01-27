@@ -11,6 +11,8 @@ gem 'unf'
 #
 group :development, :test do
   gem 'rspec-rails'
+  gem 'shoulda-matchers'
+  gem 'factory_girl_rails'
 end
 group :development do
   gem 'sqlite3'
